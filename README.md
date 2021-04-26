@@ -17,7 +17,7 @@ npx run ios # for running iOS
 react-native run-android # for running android
 ```
 
-![Simulator Screen Shot - iPhone 12 - 2021-04-26 at 16 41 47](https://user-images.githubusercontent.com/15166261/116148489-f7645480-a6ae-11eb-8446-b4a29d112754.png)
+![Simulator Screen Shot - iPhone 12 - 2021-04-26 at 16 46 27](https://user-images.githubusercontent.com/15166261/116148515-00edbc80-a6af-11eb-8d41-de97e9d8a313.png)
 
 
 ## Author
