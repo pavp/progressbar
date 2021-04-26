@@ -1,6 +1,6 @@
 # ProgressBar
 
-Test.
+Challenge.
 
 ## Installation
 This instructions consider that the node environment and react native requirements have been fulfilled 
