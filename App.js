@@ -1,11 +1,12 @@
-import React, {useState, useEffect} from 'react';
-import {SafeAreaView, StyleSheet, Text, View, Pressable} from 'react-native';
+import React, { useState, useEffect } from "react";
+import { SafeAreaView, StyleSheet, Text, View, Pressable } from "react-native";
+import PropTypes from "prop-types";
 
-const Square = ({status}) => {
+const Square = ({ status }) => {
   return <View style={[styles.square, status && styles.fillSquare]} />;
 };
 
-const Button = ({onPress, title}) => {
+const Button = ({ onPress, title }) => {
   return (
     <Pressable style={styles.button} onPress={onPress}>
       <Text style={styles.buttonTitle}>{title}</Text>
@@ -22,7 +23,7 @@ const App = () => {
     const interval = setInterval(() => {
       if (start && index < 15) {
         progress[index] = true;
-        setIndex(index => index + 1);
+        setIndex((index) => index + 1);
       }
     }, 500);
     return () => clearInterval(interval);
@@ -42,16 +43,16 @@ const App = () => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <Text style={styles.title}>{'Progress Bar'}</Text>
+      <Text style={styles.title}>{"Progress Bar"}</Text>
       <View style={styles.progressBar}>
         {progress.map((item, index) => {
           return <Square status={item} key={index} />;
         })}
       </View>
       <View style={styles.buttons}>
-        <Button title={'Start'} onPress={startProgress} />
-        <Button title={'Stop'} onPress={stopProgress} />
-        <Button title={'Reset'} onPress={restartProgress} />
+        <Button title={"Start"} onPress={startProgress} />
+        <Button title={"Stop"} onPress={stopProgress} />
+        <Button title={"Reset"} onPress={restartProgress} />
       </View>
     </SafeAreaView>
   );
@@ -60,34 +61,34 @@ const App = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: 'white',
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "white",
   },
   progressBar: {
-    flexDirection: 'row',
+    flexDirection: "row",
     marginHorizontal: 16,
   },
   buttons: {
-    flexDirection: 'row',
+    flexDirection: "row",
     marginTop: 16,
   },
   square: {
     flex: 1 / 15,
-    borderColor: 'black',
+    borderColor: "black",
     borderWidth: 1,
     aspectRatio: 1,
-    backgroundColor: 'white',
+    backgroundColor: "white",
     marginHorizontal: 2,
   },
   fillSquare: {
-    backgroundColor: 'green',
+    backgroundColor: "green",
   },
   buttonTitle: {
-    color: 'black',
+    color: "black",
   },
   button: {
-    borderColor: 'black',
+    borderColor: "black",
     marginHorizontal: 8,
     borderWidth: 1,
     paddingVertical: 2,
@@ -95,10 +96,19 @@ const styles = StyleSheet.create({
   },
   title: {
     marginVertical: 16,
-    fontWeight: 'bold',
+    fontWeight: "bold",
     fontSize: 25,
-    color: 'black',
+    color: "black",
   },
 });
+
+Square.propTypes = {
+  status: PropTypes.bool.isRequired,
+};
+
+Button.propTypes = {
+  onPress: PropTypes.func.isRequired,
+  title: PropTypes.string.isRequired,
+};
 
 export default App;
